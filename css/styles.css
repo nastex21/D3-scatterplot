@@ -26,10 +26,6 @@ svg {
     background-color: wheat;
   }
 
-  #legend {
-      
-  }
-
   .grid line {
     stroke: lightgrey;
     stroke-opacity: 0.7;
