@@ -1,5 +1,5 @@
 # D3-splatterplot
-Splatterplot graph
+Scatter plot graph
 
 Work in progress. Incomplete.
 
