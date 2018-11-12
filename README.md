@@ -1,4 +1,4 @@
-# D3-splatterplot
+# D3-scatter plot
 Scatter plot graph
 
 Work in progress. Incomplete.
