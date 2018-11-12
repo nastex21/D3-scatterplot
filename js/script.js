@@ -68,8 +68,9 @@ d3.json(link).then(function (data) { //get JSON data
     svg.append("text")
         .attr("id", "title")
         .style("text-anchor", "beginning")
-        .attr("y", 25)
-        .attr("font-size", "3em")
+        .attr("x", 350)
+        .attr("y", 30)
+        .attr("font-size", "2em")
         .text("Doping Scandals in Cycling")
 
     chart.append("text")
