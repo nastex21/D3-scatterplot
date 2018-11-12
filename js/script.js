@@ -19,8 +19,6 @@ var svg = d3.select('#container')
     .attr("height", height + margin.top + margin.bottom)
     .attr("width", width + margin.left + margin.right) 
 
-console.log("height: " + height + " width: " + width);
-
 var chart = svg
     .append("g")
     .attr("transform",
@@ -103,7 +101,7 @@ d3.json(link).then(function (data) { //get JSON data
         .attr("x", width)
         .attr("y", height)
         .style("text-anchor", "end")
-        .text("YEAR");
+        .text("Year");
 
     chart.append('g')
         .attr("id", "y-axis")
@@ -116,13 +114,13 @@ d3.json(link).then(function (data) { //get JSON data
     //label on left side of chart
     chart.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("x", -3)
-        .attr("y", 15)
+        .attr("x", 40)
+        .attr("y", -15)
         .style('text-anchor', 'end')
-        .text("TIME (in minutes)")
+        .text("Minutes")
 
     // Define the div for the tooltip
-    var div = d3.select("body").append("div")
+    var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
 
@@ -142,24 +140,24 @@ d3.json(link).then(function (data) { //get JSON data
         })
         .on("mouseover", function (d) {
             if (d.URL == "") {
-                div.transition()
+                tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html(formatYear(d.Year) + " " + d.Name + "<br/>" + "Time: " + formatTime(d.Time))
+                tooltip.html(formatYear(d.Year) + " " + d.Name + "<br/>" + "Time: " + formatTime(d.Time))
                     .style("left", (d3.event.pageX + 30) + "px")
                     .style("top", (d3.event.pageY) + "px");
             } else {
-                div.transition()
+                tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html(formatYear(d.Year) + " " + d.Name + "<br/>" + "Time: " + formatTime(d.Time) + "<br/>"
+                tooltip.html(formatYear(d.Year) + " " + d.Name + "<br/>" + "Time: " + formatTime(d.Time) + "<br/>"
                     + d.Doping)
                     .style("left", (d3.event.pageX + 30) + "px")
                     .style("top", (d3.event.pageY) + "px");
             }
         })
         .on("mouseout", function (d) {
-            div.transition()
+            tooltip.transition()
                 .duration(500)
                 .style("opacity", 0);
         });
