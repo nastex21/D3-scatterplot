@@ -130,7 +130,7 @@ d3.json(link).then(function (data) { //get JSON data
         .append('circle')
         .attr('cx', (d, i) => xScale(d.Year))
         .attr('cy', (d) => yScale(d.Time))
-        .attr('r', 15)
+        .attr('r', 6)
         .attr("fill", function (d) {
             if (d.URL == "") {
                 return color(2)
