@@ -128,6 +128,7 @@ d3.json(link).then(function (data) { //get JSON data
         .data(data)
         .enter()
         .append('circle')
+        .attr("class", "dot")
         .attr('cx', (d, i) => xScale(d.Year))
         .attr('cy', (d) => yScale(d.Time))
         .attr('r', 6)
@@ -167,6 +168,7 @@ d3.json(link).then(function (data) { //get JSON data
         .data(legendKeys)
         .enter()
         .append("g")
+        .attr("id", "legend")
         .attr("transform", function (d, i) {
             return "translate(0," + (height / 2 - i * 20) + ")";
         })
